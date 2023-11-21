@@ -2,13 +2,18 @@
 
 const data = [
   {
-    "kode_sub_unit": "1.02.0.00.0.00.01.0001",
-    "nama_sub_unit": "Puskesmas Kebonsari",
-    "kode_opd": "1.02.0.00.0.00.01.0000"
+    "kode_sub_unit": "1.01.2.22.0.00.01.0000",
+    "nama_sub_unit": "Dinas Pendidikan dan Kebudayaan",
+    "kode_opd": "1.01.2.22.0.00.01.0000"
   },
   {
     "kode_sub_unit": "1.02.0.00.0.00.01.0000",
     "nama_sub_unit": "Dinas Kesehatan",
+    "kode_opd": "1.02.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "1.02.0.00.0.00.01.0001",
+    "nama_sub_unit": "Puskesmas Kebonsari",
     "kode_opd": "1.02.0.00.0.00.01.0000"
   },
   {
@@ -147,9 +152,99 @@ const data = [
     "kode_opd": "1.02.0.00.0.00.01.0000"
   },
   {
+    "kode_sub_unit": "1.03.0.00.0.00.01.0000",
+    "nama_sub_unit": "Dinas Pekerjaan Umum dan Penataan Ruang",
+    "kode_opd": "1.03.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "1.04.2.10.0.00.01.0000",
+    "nama_sub_unit": "Dinas Perumahan dan Kawasan Permukiman",
+    "kode_opd": "1.04.2.10.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "1.05.0.00.0.00.02.0000",
+    "nama_sub_unit": "Satuan Polisi Pamong Praja dan Pemadam Kebakaran",
+    "kode_opd": "1.05.0.00.0.00.02.0000"
+  },
+  {
+    "kode_sub_unit": "1.05.0.00.0.00.03.0000",
+    "nama_sub_unit": "Badan Penanggulangan Bencana Daerah",
+    "kode_opd": "1.05.0.00.0.00.03.0000"
+  },
+  {
+    "kode_sub_unit": "1.06.0.00.0.00.01.0000",
+    "nama_sub_unit": "Dinas Sosial",
+    "kode_opd": "1.06.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.07.3.31.3.32.01.0000",
+    "nama_sub_unit": "Dinas Tenaga Kerja dan Perindustrian",
+    "kode_opd": "2.07.3.31.3.32.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.09.3.27.0.00.01.0000",
+    "nama_sub_unit": "Dinas Ketahanan Pangan dan Peternakan",
+    "kode_opd": "2.09.3.27.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.11.0.00.0.00.01.0000",
+    "nama_sub_unit": "Dinas Lingkungan Hidup",
+    "kode_opd": "2.11.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.12.0.00.0.00.01.0000",
+    "nama_sub_unit": "Dinas Kependudukan dan Pencatatan Sipil",
+    "kode_opd": "2.12.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.13.0.00.0.00.01.0000",
+    "nama_sub_unit": "Dinas Pemberdayaan Masyarakat dan Desa",
+    "kode_opd": "2.13.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.14.2.08.0.00.01.0000",
+    "nama_sub_unit": "Dinas Pengendalian Penduduk dan Keluarga Berencana, Pemberdayaan Perempuan dan Perlindungan Anak",
+    "kode_opd": "2.14.2.08.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.15.0.00.0.00.01.0000",
+    "nama_sub_unit": "Dinas Perhubungan",
+    "kode_opd": "2.15.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.16.2.20.2.21.01.0000",
+    "nama_sub_unit": "Dinas Komunikasi dan Informatika",
+    "kode_opd": "2.16.2.20.2.21.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.17.3.30.0.00.01.0000",
+    "nama_sub_unit": "Dinas Perdagangan, Koperasi dan Usaha Mikro",
+    "kode_opd": "2.17.3.30.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.18.0.00.0.00.01.0000",
+    "nama_sub_unit": "Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu",
+    "kode_opd": "2.18.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.19.3.26.0.00.01.0000",
+    "nama_sub_unit": "Dinas Pariwisata Pemuda dan Olah Raga",
+    "kode_opd": "2.19.3.26.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "2.23.2.24.0.00.01.0000",
+    "nama_sub_unit": "Dinas Perpustakaan dan Kearsipan",
+    "kode_opd": "2.23.2.24.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "3.27.3.25.0.00.01.0000",
+    "nama_sub_unit": "Dinas Pertanian dan Perikanan",
+    "kode_opd": "3.27.3.25.0.00.01.0000"
+  },
+  {
     "kode_sub_unit": "4.01.5.06.0.00.03.0000",
     "nama_sub_unit": "Sekretariat Daerah",
-    "kode_opd": "1.02.0.00.0.00.01.0000"
+    "kode_opd": "4.01.5.06.0.00.03.0000"
   },
   {
     "kode_sub_unit": "4.01.5.06.0.00.03.0001",
@@ -197,9 +292,59 @@ const data = [
     "kode_opd": "4.01.5.06.0.00.03.0000"
   },
   {
+    "kode_sub_unit": "4.02.0.00.0.00.01.0000",
+    "nama_sub_unit": "Dewan Perwakilan Rakyat Daerah",
+    "kode_opd": "4.02.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "4.02.0.00.0.00.02.0000",
+    "nama_sub_unit": "Kepala Daerah dan Wakil kepala Daerah",
+    "kode_opd": "4.02.0.00.0.00.02.0000"
+  },
+  {
+    "kode_sub_unit": "4.02.0.00.0.00.04.0000",
+    "nama_sub_unit": "Sekretariat Dewan Perwakilan Rakyat Daerah",
+    "kode_opd": "4.02.0.00.0.00.04.0000"
+  },
+  {
+    "kode_sub_unit": "5.01.5.05.0.00.01.0000",
+    "nama_sub_unit": "Badan Perencanaan Pembangunan Riset, dan Inovasi Daerah",
+    "kode_opd": "5.01.5.05.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "5.02.0.00.0.00.01.0000",
+    "nama_sub_unit": "Badan Pengelolaan Keuangan dan Aset Daerah",
+    "kode_opd": "5.02.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "5.02.0.00.0.00.02.0000",
+    "nama_sub_unit": "Badan Pendapatan Daerah",
+    "kode_opd": "5.02.0.00.0.00.02.0000"
+  },
+  {
+    "kode_sub_unit": "5.03.5.04.0.00.01.0000",
+    "nama_sub_unit": "Badan Kepegawaian dan Pengembangan Sumber Daya Manusia",
+    "kode_opd": "5.03.5.04.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "6.01.0.00.0.00.01.0000",
+    "nama_sub_unit": "Inspektorat",
+    "kode_opd": "6.01.0.00.0.00.01.0000"
+  },
+  {
+    "kode_sub_unit": "7.01.0.00.0.00.05.0000",
+    "nama_sub_unit": "Kecamatan Balerejo",
+    "kode_opd": "7.01.0.00.0.00.05.0000"
+  },
+  {
+    "kode_sub_unit": "7.01.0.00.0.00.06.0000",
+    "nama_sub_unit": "Kecamatan Dagangan",
+    "kode_opd": "7.01.0.00.0.00.06.0000"
+  },
+  {
     "kode_sub_unit": "7.01.0.00.0.00.07.0000",
     "nama_sub_unit": "Kecamatan Dolopo",
-    "kode_opd": "4.01.5.06.0.00.03.0000"
+    "kode_opd": "7.01.0.00.0.00.07.0000"
   },
   {
     "kode_sub_unit": "7.01.0.00.0.00.07.0001",
@@ -212,9 +357,34 @@ const data = [
     "kode_opd": "7.01.0.00.0.00.07.0000"
   },
   {
+    "kode_sub_unit": "7.01.0.00.0.00.08.0000",
+    "nama_sub_unit": "Kecamatan Geger",
+    "kode_opd": "7.01.0.00.0.00.08.0000"
+  },
+  {
+    "kode_sub_unit": "7.01.0.00.0.00.09.0000",
+    "nama_sub_unit": "Kecamatan Gemarang",
+    "kode_opd": "7.01.0.00.0.00.09.0000"
+  },
+  {
+    "kode_sub_unit": "7.01.0.00.0.00.10.0000",
+    "nama_sub_unit": "Kecamatan Jiwan",
+    "kode_opd": "7.01.0.00.0.00.10.0000"
+  },
+  {
+    "kode_sub_unit": "7.01.0.00.0.00.11.0000",
+    "nama_sub_unit": "Kecamatan Kebonsari",
+    "kode_opd": "7.01.0.00.0.00.11.0000"
+  },
+  {
+    "kode_sub_unit": "7.01.0.00.0.00.12.0000",
+    "nama_sub_unit": "Kecamatan Kare",
+    "kode_opd": "7.01.0.00.0.00.12.0000"
+  },
+  {
     "kode_sub_unit": "7.01.0.00.0.00.13.0000",
     "nama_sub_unit": "Kecamatan Madiun",
-    "kode_opd": "7.01.0.00.0.00.07.0000"
+    "kode_opd": "7.01.0.00.0.00.13.0000"
   },
   {
     "kode_sub_unit": "7.01.0.00.0.00.13.0001",
@@ -224,7 +394,7 @@ const data = [
   {
     "kode_sub_unit": "7.01.0.00.0.00.14.0000",
     "nama_sub_unit": "Kecamatan Mejayan",
-    "kode_opd": "7.01.0.00.0.00.13.0000"
+    "kode_opd": "7.01.0.00.0.00.14.0000"
   },
   {
     "kode_sub_unit": "7.01.0.00.0.00.14.0001",
@@ -242,9 +412,24 @@ const data = [
     "kode_opd": "7.01.0.00.0.00.14.0000"
   },
   {
+    "kode_sub_unit": "7.01.0.00.0.00.15.0000",
+    "nama_sub_unit": "Kecamatan Pilangkenceng",
+    "kode_opd": "7.01.0.00.0.00.15.0000"
+  },
+  {
+    "kode_sub_unit": "7.01.0.00.0.00.16.0000",
+    "nama_sub_unit": "Kecamatan Sawahan",
+    "kode_opd": "7.01.0.00.0.00.16.0000"
+  },
+  {
+    "kode_sub_unit": "7.01.0.00.0.00.17.0000",
+    "nama_sub_unit": "Kecamatan Saradan",
+    "kode_opd": "7.01.0.00.0.00.17.0000"
+  },
+  {
     "kode_sub_unit": "7.01.0.00.0.00.18.0000",
     "nama_sub_unit": "Kecamatan Wungu",
-    "kode_opd": "7.01.0.00.0.00.14.0000"
+    "kode_opd": "7.01.0.00.0.00.18.0000"
   },
   {
     "kode_sub_unit": "7.01.0.00.0.00.18.0001",
@@ -255,6 +440,16 @@ const data = [
     "kode_sub_unit": "7.01.0.00.0.00.18.0002",
     "nama_sub_unit": "Kelurahan Munggut",
     "kode_opd": "7.01.0.00.0.00.18.0000"
+  },
+  {
+    "kode_sub_unit": "7.01.0.00.0.00.19.0000",
+    "nama_sub_unit": "Kecamatan Wonoasri",
+    "kode_opd": "7.01.0.00.0.00.19.0000"
+  },
+  {
+    "kode_sub_unit": "8.01.0.00.0.00.01.0000",
+    "nama_sub_unit": "Badan Kesatuan Bangsa dan Politik",
+    "kode_opd": "8.01.0.00.0.00.01.0000"
   }
 ]
 
