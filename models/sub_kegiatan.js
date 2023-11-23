@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       primaryKey: true
     },
-    nama_sub_kegiatan: DataTypes.STRING,
+    nama_sub_kegiatan: DataTypes.STRING(1234),
     kode_kegiatan: DataTypes.STRING
   }, {
     sequelize,

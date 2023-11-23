@@ -40,7 +40,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       role: {
-        type: Sequelize.INTEGER
+        type: Sequelize.JSON,
       },
       kode_sub_unit: {
         type: Sequelize.STRING,

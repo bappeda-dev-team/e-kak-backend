@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       primaryKey: true
     },
-    nama_kegiatan: DataTypes.STRING,
+    nama_kegiatan: DataTypes.STRING(1234),
     kode_program: DataTypes.STRING
   }, {
     sequelize,

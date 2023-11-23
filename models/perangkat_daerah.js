@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
     },
     nama_opd: DataTypes.STRING,
-    sub_opd: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Perangkat_Daerah',

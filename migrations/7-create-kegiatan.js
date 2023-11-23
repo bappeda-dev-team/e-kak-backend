@@ -2,14 +2,14 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Programs', {
+    await queryInterface.createTable('Kegiatans', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      kode_program: {
+      kode_kegiatan: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: false,
@@ -17,44 +17,25 @@ module.exports = {
         validate: {
           notEmpty: {
             args: true,
-            msg: 'Kode Program tidak boleh kosong!'
+            msg: 'Kode Kegiatan tidak boleh kosong!'
           },
         }
       },
-      nama_program: {
-        type: Sequelize.STRING
+      nama_kegiatan: {
+        type: Sequelize.STRING(1234)
       },
-      tahun: {
-        type: Sequelize.STRING
-      },
-      kode_sub_unit: {
+      kode_program: {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
           notEmpty: {
             args: true,
-            msg: 'Harap masukkan OPD terkait!'
+            msg: 'Harap masukkan Program terkait!'
           }
         },
         references: {
-          model: 'Sub_Units',
-          key: 'kode_sub_unit'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-      },
-      Bidang_Urusans: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'Harap masukkan OPD terkait!'
-          }
-        },
-        references: {
-          model: 'Bidang_Urusans',
-          key: 'kode_urusan'
+          model: 'Programs',
+          key: 'kode_program'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
@@ -70,6 +51,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Programs');
+    await queryInterface.dropTable('Kegiatans');
   }
 };

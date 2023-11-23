@@ -2,31 +2,40 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Bidang_Urusans', {
+    await queryInterface.createTable('Sub_Kegiatans', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      kode_bidang_urusan: {
-        type: Sequelize.STRING
+      kode_sub_kegiatan: {
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false,
+        primaryKey: true,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: 'Kode Sub Kegiatan tidak boleh kosong!'
+          },
+        }
       },
-      nama_bidang_urusan: {
-        type: Sequelize.STRING
+      nama_sub_kegiatan: {
+        type: Sequelize.STRING(1234)
       },
-      kode_urusan: {
+      kode_kegiatan: {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
           notEmpty: {
             args: true,
-            msg: 'Harap masukkan Urusan terkait!'
+            msg: 'Harap masukkan Kegiatan terkait!'
           }
         },
         references: {
-          model: 'Urusans',
-          key: 'kode_urusan'
+          model: 'Kegiatans',
+          key: 'kode_kegiatan'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
@@ -42,6 +51,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Bidang_Urusans');
+    await queryInterface.dropTable('Sub_Kegiatans');
   }
 };

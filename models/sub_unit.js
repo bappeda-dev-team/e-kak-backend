@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Sub_Unit.belongsTo(models.Perangkat_Daerah, { foreignKey: 'kode_opd' });
       Sub_Unit.hasMany(models.User, { foreignKey: 'kode_sub_unit' });
-      Sub_Unit.hasMany(models.Program, { foreignKey: 'kode_sub_unit' });
       Sub_Unit.hasMany(models.Tujuan_OPD, { foreignKey: 'kode_sub_unit' });
     }
   }

@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     tujuan_opd: DataTypes.STRING,
     indikator: DataTypes.STRING,
     rumus_perhitungan: DataTypes.STRING,
-    tahun: DataTypes.STRING,
+    tahun: DataTypes.JSON,
     kode_opd: DataTypes.STRING,
     kode_sub_unit: DataTypes.STRING
   }, {

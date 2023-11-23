@@ -24,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     kode_kegiatan: DataTypes.STRING,
     kode_sub_kegiatan: DataTypes.STRING,
     keterangan: DataTypes.STRING,
-    nip: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Indikator',

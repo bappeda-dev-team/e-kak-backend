@@ -67,11 +67,6 @@ const data = [
     "kode_urusan": "2"
   },
   {
-    "kode_bidang_urusan": "3.27",
-    "nama_bidang_urusan": "URUSAN PEMERINTAHAN BIDANG PERTANIAN",
-    "kode_urusan": "3"
-  },
-  {
     "kode_bidang_urusan": "2.11",
     "nama_bidang_urusan": "URUSAN PEMERINTAHAN BIDANG LINGKUNGAN HIDUP",
     "kode_urusan": "2"

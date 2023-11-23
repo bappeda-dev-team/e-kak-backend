@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     pangkat: DataTypes.STRING,
     nama_pangkat: DataTypes.STRING,
     eselon: DataTypes.STRING,
+    role: DataTypes.JSON,
     kode_sub_unit: DataTypes.STRING
   }, {
     sequelize,
