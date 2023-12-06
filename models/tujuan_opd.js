@@ -11,14 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Tujuan_OPD.belongsTo(models.Sub_Unit, { foreignKey: 'kode_sub_unit' });
+      Tujuan_OPD.hasMany(models.Indikator_Tujuan_OPD, { foreignKey: 'id_tujuan_opd', as: 'indikator_tujuan' });
+      Tujuan_OPD.hasMany(models.Strategic, { foreignKey: 'id_tujuan_opd', as: 'strategic' });
+      Tujuan_OPD.belongsToMany(models.Bidang_Urusan, {
+        through: models.Tujuan_Bidang_Urusan,
+        foreignKey: 'id_tujuan_opd',
+        otherKey: 'kode_bidang_urusan',
+        as: 'bidang_urusan'
+      })
     }
   }
   Tujuan_OPD.init({
-    tujuan_opd: DataTypes.STRING,
-    indikator: DataTypes.STRING,
-    rumus_perhitungan: DataTypes.STRING,
-    tahun: DataTypes.JSON,
-    kode_opd: DataTypes.STRING,
+    tujuan: DataTypes.STRING,
     kode_sub_unit: DataTypes.STRING
   }, {
     sequelize,

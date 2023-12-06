@@ -2,48 +2,27 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('Indikator_Tujuan_OPDs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nama: {
+      indikator: {
         type: Sequelize.STRING
       },
-      nip: {
-        type: Sequelize.STRING,
-        unique: true,
-        allowNull: false,
-        primaryKey: true,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'NIP tidak boleh kosong!'
-          },
-        }
-      },
-      email: {
+      rumus_perhitungan: {
         type: Sequelize.STRING
       },
-      password: {
+      sumber_data: {
         type: Sequelize.STRING
       },
-      pangkat: {
-        type: Sequelize.STRING
+      tahun: {
+        type: Sequelize.JSON(10000)
       },
-      nama_pangkat: {
-        type: Sequelize.STRING
-      },
-      eselon: {
-        type: Sequelize.STRING
-      },
-      role: {
-        type: Sequelize.JSON,
-      },
-      kode_sub_unit: {
-        type: Sequelize.STRING,
+      id_tujuan_opd: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         validate: {
           notEmpty: {
@@ -52,8 +31,8 @@ module.exports = {
           }
         },
         references: {
-          model: 'Sub_Units',
-          key: 'kode_sub_unit'
+          model: 'Tujuan_OPDs',
+          key: 'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
@@ -69,6 +48,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Indikator_Tujuan_OPDs');
   }
 };

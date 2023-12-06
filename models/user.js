@@ -11,17 +11,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.belongsTo(models.Sub_Unit, { foreignKey: 'kode_sub_unit' });
+      User.belongsToMany(models.Role, {
+        through: models.Role_User,
+        foreignKey: 'nip',
+        otherKey: 'id_role'
+      });
     }
   }
   User.init({
     nama: DataTypes.STRING,
-    nip: DataTypes.STRING,
+    nip: {
+      type: DataTypes.STRING,
+      primaryKey: true
+    },
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     pangkat: DataTypes.STRING,
-    nama_pangkat: DataTypes.STRING,
+    golongan: DataTypes.STRING,
     eselon: DataTypes.STRING,
-    role: DataTypes.JSON,
     kode_sub_unit: DataTypes.STRING
   }, {
     sequelize,

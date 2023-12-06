@@ -1,4 +1,4 @@
-const { User, Sub_Unit, Perangkat_Daerah } = require('../models');
+const { User, Sub_Unit, Perangkat_Daerah, Role } = require('../models');
 const { hashPassword, comparePassword } = require('../helpers/bcrypt');
 const { generateToken } = require('../helpers/jwt');
 const { Op } = require("sequelize");
@@ -12,7 +12,27 @@ class UserController {
             { nip: req.body.nip },
             { email: req.body.nip }
           ]
-        }
+        },
+        include: [
+          {
+            model: Role,
+            attributes: ['nama_role']
+          },
+          {
+            model: Sub_Unit,
+            attributes: {
+              exclude: ['createdAt', 'updatedAt']
+            },
+            include: [
+              {
+                model: Perangkat_Daerah,
+                attributes: {
+                  exclude: ['createdAt', 'updatedAt']
+                },
+              },
+            ]
+          }
+        ]
       })
 
       if (!user) {
@@ -41,9 +61,10 @@ class UserController {
             nip: user.nip,
             email: user.email,
             pangkat: user.pangkat,
-            namaPangkat: user.nama_pangkat,
+            golongan: user.golongan,
             eselon: user.eselon,
-            role: user.role,
+            role: user.Roles,
+            opd: user.Sub_Unit
           })
 
           res.status(200).json({
@@ -104,21 +125,25 @@ class UserController {
           ]
         },
         attributes: {
-          exclude: [['createdAt', 'updatedAt', 'password']]
+          exclude: ['createdAt', 'updatedAt', 'password']
         },
         include: [
           {
+            model: Role,
+            attributes: ['nama_role']
+          },
+          {
             model: Sub_Unit,
             attributes: {
-              exclude: [['createdAt', 'updatedAt']]
+              exclude: ['createdAt', 'updatedAt']
             },
             include: [
               {
                 model: Perangkat_Daerah,
                 attributes: {
-                  exclude: [['createdAt', 'updatedAt']]
+                  exclude: ['createdAt', 'updatedAt']
                 },
-              }
+              },
             ]
           }
         ]
@@ -144,7 +169,7 @@ class UserController {
         })
       }
     } catch (err) {
-      console.log(err.message, '>>>');
+      console.log(err.message, '>>> err');
       res.status(500).json({
         success: false,
         data: {

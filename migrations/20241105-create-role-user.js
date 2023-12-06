@@ -2,43 +2,40 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Bidang_Urusans', {
+    await queryInterface.createTable('Role_Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      kode_bidang_urusan: {
+      nip: {
         type: Sequelize.STRING,
-        unique: true,
         allowNull: false,
-        primaryKey: true,
         validate: {
           notEmpty: {
             args: true,
-            msg: 'Kode Bidang Urusan tidak boleh kosong!'
+            msg: "Harap masukkan User terkait",
           },
-        }
-      },
-      nama_bidang_urusan: {
-        type: Sequelize.STRING
-      },
-      kode_urusan: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            args: true,
-            msg: 'Harap masukkan Urusan terkait!'
-          }
         },
         references: {
-          model: 'Urusans',
-          key: 'kode_urusan'
+          model: "Users",
+          key: "nip",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
+      },
+      id_role: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            args: true,
+            msg: "Harap masukkan Role",
+          },
+        },
+        references: {
+          model: "Roles",
+          key: "id",
+        },
       },
       createdAt: {
         allowNull: false,
@@ -51,6 +48,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Bidang_Urusans');
+    await queryInterface.dropTable('Role_Users');
   }
 };
