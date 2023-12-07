@@ -39,6 +39,13 @@ module.exports = {
           key: "id",
         },
       },
+      id_staff: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Staffs",
+          key: "id",
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

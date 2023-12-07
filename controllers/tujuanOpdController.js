@@ -48,69 +48,65 @@ class TujuanOPDController {
     }
   }
 
-  static addTujuan = async (req, res) => {
-    try {
-      Tujuan_OPD.create({
-        tujuan: req.body.tujuan,
-        kode_sub_unit: req.body.kode_sub_unit
-      })
-        .then(res1 => {
-          req.body.indikator.forEach(el => {
-            el.id_tujuan_opd = res1.id
-          })
-
-          Indikator_Tujuan_OPD.bulkCreate(req.body.indikator)
-            .then(_ => {
-              req.body.kode_bidang_urusan.forEach(el => {
-                const payload = {
-                  kode_bidang_urusan: el.value,
-                  id_tujuan_opd: res1.id
-                }
-
-                Tujuan_Bidang_Urusan.create(payload)
-                  .then(res2 => {
-                    res.status(200).json({
-                      success: true,
-                      data: {
-                        code: 200,
-                        message: 'Success',
-                        data: res2
-                      }
-                    })
-                  })
-              })
-            })
-            .catch(err3 => {
-              res.status(500).json({
-                success: false,
-                data: {
-                  code: 500,
-                  message: 'Internal server error',
-                  data: err3
-                }
-              })
-            })
+  static addTujuan = (req, res) => {
+    Tujuan_OPD.create({
+      tujuan: req.body.tujuan,
+      kode_sub_unit: req.body.kode_sub_unit
+    })
+      .then(data => {
+        req.body.indikator.forEach(el => {
+          el.id_tujuan_opd = data.id
         })
-        .catch(err2 => {
-          res.status(500).json({
-            success: false,
-            data: {
-              code: 500,
-              message: 'Internal server error',
-              data: err2
-            }
+
+        Indikator_Tujuan_OPD.bulkCreate(req.body.indikator)
+          .then(_ => {
+            req.body.kode_bidang_urusan.forEach(el => {
+              el.id_tujuan_opd = data.id
+            })
+            console.log(req.body.kode_bidang_urusan, '>>>');
+            Tujuan_Bidang_Urusan.bulkCreate(req.body.kode_bidang_urusan)
+              .then(res3 => {
+                res.status(200).json({
+                  success: true,
+                  data: {
+                    code: 200,
+                    message: 'Success',
+                    data: res3
+                  }
+                })
+              })
+              .catch(err3 => {
+                res.status(500).json({
+                  success: false,
+                  data: {
+                    code: 500,
+                    message: 'Internal server error',
+                    data: err3
+                  }
+                })
+              })
           })
-        })
-    } catch (err) {
-      res.status(500).json({
-        success: false,
-        data: {
-          code: 500,
-          message: 'Internal server error',
-          data: err
-        }
+          .catch(err2 => {
+            res.status(500).json({
+              success: false,
+              data: {
+                code: 500,
+                message: 'Internal server error',
+                data: err2
+              }
+            })
+          })
       })
-    }
+      .catch(err => {
+        res.status(500).json({
+          success: false,
+          data: {
+            code: 500,
+            message: 'Internal server error',
+            data: err
+          }
+        })
+      })
   }
 }
 

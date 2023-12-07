@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Operational.belongsTo(models.Tactical, { foreignKey: 'id_tactical' });
+      Operational.hasMany(models.Staff, { foreignKey: 'id_operational', as: 'staff' });
       Operational.hasMany(models.Indikator_Pohon_Kinerja, { foreignKey: 'id_operational', as: 'indikator' });
     }
   }

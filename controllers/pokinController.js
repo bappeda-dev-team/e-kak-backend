@@ -234,6 +234,7 @@ class PokinController {
           })
       })
       .catch(err => {
+        console.log(err, '<<< error 1');
         res.status(500).json({
           success: false,
           data: {

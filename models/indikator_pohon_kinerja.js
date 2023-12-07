@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       Indikator_Pohon_Kinerja.belongsTo(models.Strategic, { foreignKey: 'id_strategic' });
       Indikator_Pohon_Kinerja.belongsTo(models.Tactical, { foreignKey: 'id_tactical' });
       Indikator_Pohon_Kinerja.belongsTo(models.Operational, { foreignKey: 'id_operational' });
+      Indikator_Pohon_Kinerja.belongsTo(models.Staff, { foreignKey: 'id_staff' });
     }
   }
   Indikator_Pohon_Kinerja.init({
@@ -21,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     satuan: DataTypes.STRING,
     id_strategic: DataTypes.INTEGER,
     id_tactical: DataTypes.INTEGER,
-    id_operational: DataTypes.INTEGER
+    id_operational: DataTypes.INTEGER,
+    id_staff: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Indikator_Pohon_Kinerja',
