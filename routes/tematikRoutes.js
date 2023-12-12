@@ -6,5 +6,8 @@ router.use(authenticate);
 router.get('/getAllTematik', TematikController.getAllTematik);
 router.post('/addTematik', TematikController.addTematik);
 router.put('/editTematik/:id', TematikController.editTematik);
+router.delete('/deleteTematik/:id', TematikController.deleteTematik);
+router.get('/getAllSubTematik', TematikController.getAllTematikWithSub);
+router.post('/addSubTematik', TematikController.addSubTematik);
 
 module.exports = router;

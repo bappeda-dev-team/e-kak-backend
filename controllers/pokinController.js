@@ -1,4 +1,4 @@
-const { Sub_Unit, Tujuan_OPD, Indikator_Tujuan_OPD, Strategic, Tactical, Operational, Indikator_Pohon_Kinerja } = require('../models');
+const { Sub_Unit, Tujuan_OPD, Indikator_Tujuan_OPD, Strategic, Tactical, Operational, Staff, Indikator_Pohon_Kinerja } = require('../models');
 
 class PokinController {
   static getPokin = async (req, res) => {
@@ -56,8 +56,22 @@ class PokinController {
                             model: Indikator_Pohon_Kinerja,
                             as: 'indikator',
                             attributes: ['id', 'indikator', 'target', 'satuan']
+                          },
+                          {
+                            model: Staff,
+                            as: 'staff',
+                            attributes: {
+                              exclude: ['createdAt', 'updatedAt'],
+                            },
+                            include: [
+                              {
+                                model: Indikator_Pohon_Kinerja,
+                                as: 'indikator',
+                                attributes: ['id', 'indikator', 'target', 'satuan']
+                              }
+                            ]
                           }
-                        ]
+                        ],
                       }
                     ]
                   }
@@ -234,7 +248,51 @@ class PokinController {
           })
       })
       .catch(err => {
-        console.log(err, '<<< error 1');
+        res.status(500).json({
+          success: false,
+          data: {
+            code: 500,
+            message: 'Internal server error',
+            data: err
+          }
+        })
+      })
+  }
+
+  static addStaff = (req, res) => {
+    Staff.create({
+      staff: req.body.staff,
+      keterangan: req.body.keterangan,
+      id_operational: req.body.id_operational
+    })
+      .then(data => {
+        req.body.indikator.forEach(el => {
+          el.id_staff = data.id
+        })
+
+        Indikator_Pohon_Kinerja.bulkCreate(req.body.indikator)
+          .then(res2 => {
+            res.status(200).json({
+              success: true,
+              data: {
+                code: 200,
+                message: 'Success',
+                data: res2
+              }
+            })
+          })
+          .catch(err2 => {
+            res.status(500).json({
+              success: false,
+              data: {
+                code: 500,
+                message: 'Internal server error',
+                data: err2
+              }
+            })
+          })
+      })
+      .catch(err => {
         res.status(500).json({
           success: false,
           data: {

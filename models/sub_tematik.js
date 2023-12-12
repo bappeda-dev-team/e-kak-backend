@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Sub_Tematik.init({
     sub_tematik: DataTypes.STRING,
-    id_tematik: DataTypes.INTEGER
+    id_tematik: DataTypes.INTEGER,
+    keterangan: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Sub_Tematik',
