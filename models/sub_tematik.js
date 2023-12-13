@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Sub_Tematik.belongsTo(models.Tematik, { foreignKey: 'id_tematik' });
+      Sub_Tematik.hasMany(models.Sub_Sub_Tematik, { foreignKey: 'id_sub_tematik', as: 'sub_sub_tematik' });
       Sub_Tematik.hasMany(models.Indikator_Tematik, { foreignKey: 'id_sub_tematik', as: 'indikator' });
     }
   }

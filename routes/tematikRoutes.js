@@ -4,6 +4,7 @@ const TematikController = require('../controllers/tematikController');
 
 router.use(authenticate);
 router.get('/getAllTematik', TematikController.getAllTematik);
+router.get('/getTematik/:id', TematikController.getOneTematik);
 router.post('/addTematik', TematikController.addTematik);
 router.put('/editTematik/:id', TematikController.editTematik);
 router.delete('/deleteTematik/:id', TematikController.deleteTematik);
